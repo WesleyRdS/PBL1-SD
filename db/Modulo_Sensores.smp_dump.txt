@@ -1,5 +1,5 @@
 
-State Machine - |mcu_top|MDHT11:comb_3|state
+State Machine - |MDHT11|state
 Name state.dataReceived state.dataStart state.bitCheckout state.up_signal state.responseReceived state.responseWait state.start_bit state.idle 
 state.idle 0 0 0 0 0 0 0 0 
 state.start_bit 0 0 0 0 0 0 1 1 
@@ -9,16 +9,3 @@ state.up_signal 0 0 0 1 0 0 0 1
 state.bitCheckout 0 0 1 0 0 0 0 1 
 state.dataStart 0 1 0 0 0 0 0 1 
 state.dataReceived 1 0 0 0 0 0 0 1 
-
-State Machine - |mcu_top|controlePC_FPGA:command_unit|state
-Name state.data state.adress state.header state.idle state.baseboard 
-state.idle 0 0 0 0 0 
-state.header 0 0 1 1 0 
-state.adress 0 1 0 1 0 
-state.data 1 0 0 1 0 
-state.baseboard 0 0 0 1 1 
-
-State Machine - |mcu_top|controlePC_FPGA:command_unit|Rx_module:comb_24|state
-Name state.receving 
-state.idle 0 
-state.receving 1 

@@ -1,5 +1,5 @@
 Flow report for Modulo_Sensores
-Thu Sep 14 01:08:20 2023
+Thu Sep 14 02:00:09 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Thu Sep 14 01:08:19 2023          ;
+; Flow Status                        ; Successful - Thu Sep 14 02:00:09 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; Modulo_Sensores                                ;
-; Top-level Entity Name              ; mcu_top                                        ;
+; Top-level Entity Name              ; MDHT11                                         ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE6E22C8                                    ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 0 / 6,272 ( 0 % )                              ;
-;     Total combinational functions  ; 0 / 6,272 ( 0 % )                              ;
-;     Dedicated logic registers      ; 0 / 6,272 ( 0 % )                              ;
-; Total registers                    ; 0                                              ;
-; Total pins                         ; 5 / 92 ( 5 % )                                 ;
+; Total logic elements               ; 106 / 6,272 ( 2 % )                            ;
+;     Total combinational functions  ; 106 / 6,272 ( 2 % )                            ;
+;     Dedicated logic registers      ; 70 / 6,272 ( 1 % )                             ;
+; Total registers                    ; 70                                             ;
+; Total pins                         ; 44 / 92 ( 48 % )                               ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 276,480 ( 0 % )                            ;
 ; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                                 ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/14/2023 01:07:51 ;
+; Start date & time ; 09/14/2023 01:59:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Modulo_Sensores     ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+-----------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value   ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+-----------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 123719800767749.169466447106176        ; --              ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 123719800767749.169466757906432        ; --              ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --              ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --              ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --              ; --          ; eda_board_design_signal_integrity ;
@@ -87,13 +87,13 @@ https://fpgasoftware.intel.com/eula.
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --              ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --              ; --          ; --                                ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --              ; --          ; --                                ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --              ; mcu_top     ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --              ; mcu_top     ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --              ; mcu_top     ; Top                               ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --              ; MDHT11      ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --              ; MDHT11      ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --              ; MDHT11      ; Top                               ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --              ; --          ; --                                ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --              ; --          ; --                                ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --              ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                    ; mcu_top                                ; Modulo_Sensores ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                    ; MDHT11                                 ; Modulo_Sensores ; --          ; --                                ;
 ; VERILOG_CONSTANT_LOOP_LIMIT         ; 1000000                                ; 5000            ; --          ; --                                ;
 +-------------------------------------+----------------------------------------+-----------------+-------------+-----------------------------------+
 
@@ -103,12 +103,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 4726 MB             ; 00:00:30                           ;
-; Fitter               ; 00:00:05     ; 1.0                     ; 5477 MB             ; 00:00:05                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4693 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4760 MB             ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4638 MB             ; 00:00:01                           ;
-; Total                ; 00:00:23     ; --                      ; --                  ; 00:00:39                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4766 MB             ; 00:00:27                           ;
+; Fitter               ; 00:00:07     ; 1.0                     ; 5486 MB             ; 00:00:08                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4702 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.0                     ; 4773 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4644 MB             ; 00:00:01                           ;
+; Total                ; 00:00:25     ; --                      ; --                  ; 00:00:39                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

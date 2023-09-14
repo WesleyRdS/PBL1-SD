@@ -2,7 +2,180 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "HumI[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HumI[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HumI[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HumI[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HumI[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HumI[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HumI[6]",
+					"strict" : false
+				},
+				{
+					"name" : "HumI[7]",
+					"strict" : false
+				},
+				{
+					"name" : "HumF[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HumF[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HumF[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HumF[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HumF[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HumF[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HumF[6]",
+					"strict" : false
+				},
+				{
+					"name" : "HumF[7]",
+					"strict" : false
+				},
+				{
+					"name" : "TempI[0]",
+					"strict" : false
+				},
+				{
+					"name" : "TempI[1]",
+					"strict" : false
+				},
+				{
+					"name" : "TempI[2]",
+					"strict" : false
+				},
+				{
+					"name" : "TempI[3]",
+					"strict" : false
+				},
+				{
+					"name" : "TempI[4]",
+					"strict" : false
+				},
+				{
+					"name" : "TempI[5]",
+					"strict" : false
+				},
+				{
+					"name" : "TempI[6]",
+					"strict" : false
+				},
+				{
+					"name" : "TempI[7]",
+					"strict" : false
+				},
+				{
+					"name" : "TempF[0]",
+					"strict" : false
+				},
+				{
+					"name" : "TempF[1]",
+					"strict" : false
+				},
+				{
+					"name" : "TempF[2]",
+					"strict" : false
+				},
+				{
+					"name" : "TempF[3]",
+					"strict" : false
+				},
+				{
+					"name" : "TempF[4]",
+					"strict" : false
+				},
+				{
+					"name" : "TempF[5]",
+					"strict" : false
+				},
+				{
+					"name" : "TempF[6]",
+					"strict" : false
+				},
+				{
+					"name" : "TempF[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Par[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Par[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Par[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Par[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Par[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Par[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Par[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Par[7]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "enable",
+					"strict" : false
+				}
+			]
 		}
 	]
 }

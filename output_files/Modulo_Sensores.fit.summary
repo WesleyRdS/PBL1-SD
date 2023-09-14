@@ -1,15 +1,15 @@
-Fitter Status : Successful - Thu Sep 14 01:08:11 2023
+Fitter Status : Successful - Thu Sep 14 02:00:00 2023
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : Modulo_Sensores
-Top-level Entity Name : mcu_top
+Top-level Entity Name : MDHT11
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final
-Total logic elements : 0 / 6,272 ( 0 % )
-    Total combinational functions : 0 / 6,272 ( 0 % )
-    Dedicated logic registers : 0 / 6,272 ( 0 % )
-Total registers : 0
-Total pins : 5 / 92 ( 5 % )
+Total logic elements : 106 / 6,272 ( 2 % )
+    Total combinational functions : 106 / 6,272 ( 2 % )
+    Dedicated logic registers : 70 / 6,272 ( 1 % )
+Total registers : 70
+Total pins : 44 / 92 ( 48 % )
 Total virtual pins : 0
 Total memory bits : 0 / 276,480 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )

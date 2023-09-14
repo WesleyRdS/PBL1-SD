@@ -1,4 +1,4 @@
-Warning (10268): Verilog HDL information at MDHT11.v(52): always construct contains both blocking and non-blocking assignments File: C:/Users/wesle/Documents/PBL1-SD/MDHT11.v Line: 52
-Warning (10268): Verilog HDL information at BaudRateGenerator.v(13): always construct contains both blocking and non-blocking assignments File: C:/Users/wesle/Documents/PBL1-SD/BaudRateGenerator.v Line: 13
-Warning (10268): Verilog HDL information at Rx_module.v(55): always construct contains both blocking and non-blocking assignments File: C:/Users/wesle/Documents/PBL1-SD/Rx_module.v Line: 55
-Warning (10268): Verilog HDL information at controlePC_FPGA.v(36): always construct contains both blocking and non-blocking assignments File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Warning (10268): Verilog HDL information at Rx_module.v(55): always construct contains both blocking and non-blocking assignments File: C:/Users/wesle/Pictures/PBL1-SD/Rx_module.v Line: 55
+Warning (10268): Verilog HDL information at MDHT11.v(52): always construct contains both blocking and non-blocking assignments File: C:/Users/wesle/Pictures/PBL1-SD/MDHT11.v Line: 52
+Warning (10268): Verilog HDL information at controlePC_FPGA.v(36): always construct contains both blocking and non-blocking assignments File: C:/Users/wesle/Pictures/PBL1-SD/controlePC_FPGA.v Line: 36
+Warning (10268): Verilog HDL information at BaudRateGenerator.v(13): always construct contains both blocking and non-blocking assignments File: C:/Users/wesle/Pictures/PBL1-SD/BaudRateGenerator.v Line: 13

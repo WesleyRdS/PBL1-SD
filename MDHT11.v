@@ -5,7 +5,6 @@ module MDHT11(Data, clk, rst,HumI, HumF, TempI, TempF, Par, enable);
 	
 	reg [39:0] DataRead;
 	reg [2:0] state;
-<<<<<<< HEAD
 	reg dht11_temp;
 	reg low_signal;
 	reg high_signal;
@@ -49,50 +48,19 @@ module MDHT11(Data, clk, rst,HumI, HumF, TempI, TempF, Par, enable);
 			count = count + 1;
 		end
 	end
-=======
-	reg dir;
-	
-	integer count18ms, count80usw, count80us, count20_to_40us, count50us, count0, count1, Nbits;
-	
-	
 
-	parameter reg [2:0] idle = 3'b000, check = 3'b001, start_bit = 3'b010, responseWait = 3'b011, responseReceived = 3'b100, bitCheckout = 3'b101, dataStart = 3'b110, dataReceived = 3'b111;
-	
-	reg send1;
-	wire read;
-
-	
-	bidirecional tristate(.En(dir), .Bdir(Data), .dataRx(read), .dataTx(send1));
->>>>>>> ed6e09f8afa79c79d1706bf5e317b7eb4c2af8a9
-	
 	always @(posedge clk) begin
 		case(state)
 			idle: begin // estado inativo
 				if(enable) begin // se estiver pronto para leitura
-<<<<<<< HEAD
 					state <= start_bit; //va para o estado e checagem
 					dht11_temp <= 1'b0;
-=======
-					dir <= 0; // mude a porta o DHT11 para modo de recebimento
-					state <= check; //va para o estado e checagem
-				end
-				else begin
-					state <= idle;
-				end
-			end
-			check: begin
-				if(read) begin
-					dir <= 1;
-					send1 <= 0;
-					state <= start_bit;
->>>>>>> ed6e09f8afa79c79d1706bf5e317b7eb4c2af8a9
 				end
 				else begin
 					state <= idle;
 				end
 			end
 			start_bit: begin
-<<<<<<< HEAD
 				if(count < 9100) begin
 					clear = 1'b0;
 					dht11_temp = 1'b0;
@@ -163,7 +131,6 @@ module MDHT11(Data, clk, rst,HumI, HumF, TempI, TempF, Par, enable);
 			dataStart: begin
 				if(falling_edge) begin
 					clear = 1'b0;
-					 
 					state <= dataStart;
 				end
 				else begin
@@ -179,7 +146,6 @@ module MDHT11(Data, clk, rst,HumI, HumF, TempI, TempF, Par, enable);
 			dataReceived: begin
 				if(rising_edge) begin
 					clear = 1'b0;
-					
 					state <= dataReceived;
 				end
 				else begin
@@ -198,17 +164,6 @@ module MDHT11(Data, clk, rst,HumI, HumF, TempI, TempF, Par, enable);
 						state <= bitCheckout;
 					end
 				end
-=======
-				if(count18ms < 9000) begin
-					state <= responseWait;
-				end
-				else begin
-					count18ms = count18ms + 1;
-				end
-			end
-			responseWait: begin
-		
->>>>>>> ed6e09f8afa79c79d1706bf5e317b7eb4c2af8a9
 			end
 		endcase  
 	end
