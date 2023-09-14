@@ -1,0 +1,589 @@
+Analysis & Synthesis report for Modulo_Sensores
+Thu Sep 14 01:08:05 2023
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |mcu_top|MDHT11:comb_3|state
+  9. State Machine - |mcu_top|controlePC_FPGA:command_unit|state
+ 10. State Machine - |mcu_top|controlePC_FPGA:command_unit|Rx_module:comb_24|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Parameter Settings for User Entity Instance: controlePC_FPGA:command_unit
+ 15. Parameter Settings for User Entity Instance: controlePC_FPGA:command_unit|Rx_module:comb_24
+ 16. Parameter Settings for User Entity Instance: MDHT11:comb_3
+ 17. Port Connectivity Checks: "demultiplexSensor:circuit_locator"
+ 18. Port Connectivity Checks: "MDHT11:comb_3"
+ 19. Port Connectivity Checks: "controlePC_FPGA:command_unit|Rx_module:comb_24"
+ 20. Port Connectivity Checks: "controlePC_FPGA:command_unit|BaudRateGenerator:comb_23"
+ 21. Port Connectivity Checks: "controlePC_FPGA:command_unit"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+ 25. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Sep 14 01:08:05 2023          ;
+; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Revision Name                      ; Modulo_Sensores                                ;
+; Top-level Entity Name              ; mcu_top                                        ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 0                                              ;
+;     Total combinational functions  ; 0                                              ;
+;     Dedicated logic registers      ; 0                                              ;
+; Total registers                    ; 0                                              ;
+; Total pins                         ; 5                                              ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                            ; mcu_top            ; Modulo_Sensores    ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Iteration limit for constant Verilog loops                       ; 1000000            ; 5000               ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                       ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                         ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
+; MDHT11.v                         ; yes             ; User Verilog HDL File  ; C:/Users/wesle/Documents/PBL1-SD/MDHT11.v            ;         ;
+; BaudRateGenerator.v              ; yes             ; User Verilog HDL File  ; C:/Users/wesle/Documents/PBL1-SD/BaudRateGenerator.v ;         ;
+; Rx_module.v                      ; yes             ; User Verilog HDL File  ; C:/Users/wesle/Documents/PBL1-SD/Rx_module.v         ;         ;
+; controlePC_FPGA.v                ; yes             ; User Verilog HDL File  ; C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v   ;         ;
+; mcu_top.v                        ; yes             ; User Verilog HDL File  ; C:/Users/wesle/Documents/PBL1-SD/mcu_top.v           ;         ;
+; demultiplexSensor.v              ; yes             ; User Verilog HDL File  ; C:/Users/wesle/Documents/PBL1-SD/demultiplexSensor.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+;                                             ;               ;
+; Total combinational functions               ; 0             ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 0             ;
+;     -- 3 input functions                    ; 0             ;
+;     -- <=2 input functions                  ; 0             ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 0             ;
+;     -- arithmetic mode                      ; 0             ;
+;                                             ;               ;
+; Total registers                             ; 0             ;
+;     -- Dedicated logic registers            ; 0             ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 5             ;
+;                                             ;               ;
+; Embedded Multiplier 9-bit elements          ; 0             ;
+;                                             ;               ;
+; Maximum fan-out node                        ; sensor~output ;
+; Maximum fan-out                             ; 1             ;
+; Total fan-out                               ; 6             ;
+; Average fan-out                             ; 0.55          ;
++---------------------------------------------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |mcu_top                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |mcu_top            ; mcu_top     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |mcu_top|MDHT11:comb_3|state                                                                                                                                     ;
++------------------------+--------------------+-----------------+-------------------+-----------------+------------------------+--------------------+-----------------+------------+
+; Name                   ; state.dataReceived ; state.dataStart ; state.bitCheckout ; state.up_signal ; state.responseReceived ; state.responseWait ; state.start_bit ; state.idle ;
++------------------------+--------------------+-----------------+-------------------+-----------------+------------------------+--------------------+-----------------+------------+
+; state.idle             ; 0                  ; 0               ; 0                 ; 0               ; 0                      ; 0                  ; 0               ; 0          ;
+; state.start_bit        ; 0                  ; 0               ; 0                 ; 0               ; 0                      ; 0                  ; 1               ; 1          ;
+; state.responseWait     ; 0                  ; 0               ; 0                 ; 0               ; 0                      ; 1                  ; 0               ; 1          ;
+; state.responseReceived ; 0                  ; 0               ; 0                 ; 0               ; 1                      ; 0                  ; 0               ; 1          ;
+; state.up_signal        ; 0                  ; 0               ; 0                 ; 1               ; 0                      ; 0                  ; 0               ; 1          ;
+; state.bitCheckout      ; 0                  ; 0               ; 1                 ; 0               ; 0                      ; 0                  ; 0               ; 1          ;
+; state.dataStart        ; 0                  ; 1               ; 0                 ; 0               ; 0                      ; 0                  ; 0               ; 1          ;
+; state.dataReceived     ; 1                  ; 0               ; 0                 ; 0               ; 0                      ; 0                  ; 0               ; 1          ;
++------------------------+--------------------+-----------------+-------------------+-----------------+------------------------+--------------------+-----------------+------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------+
+; State Machine - |mcu_top|controlePC_FPGA:command_unit|state                               ;
++-----------------+------------+--------------+--------------+------------+-----------------+
+; Name            ; state.data ; state.adress ; state.header ; state.idle ; state.baseboard ;
++-----------------+------------+--------------+--------------+------------+-----------------+
+; state.idle      ; 0          ; 0            ; 0            ; 0          ; 0               ;
+; state.header    ; 0          ; 0            ; 1            ; 1          ; 0               ;
+; state.adress    ; 0          ; 1            ; 0            ; 1          ; 0               ;
+; state.data      ; 1          ; 0            ; 0            ; 1          ; 0               ;
+; state.baseboard ; 0          ; 0            ; 0            ; 1          ; 1               ;
++-----------------+------------+--------------+--------------+------------+-----------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------+
+; State Machine - |mcu_top|controlePC_FPGA:command_unit|Rx_module:comb_24|state ;
++----------------+--------------------------------------------------------------+
+; Name           ; state.receving                                               ;
++----------------+--------------------------------------------------------------+
+; state.idle     ; 0                                                            ;
+; state.receving ; 1                                                            ;
++----------------+--------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                     ;
++-------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                 ; Reason for Removal                     ;
++-------------------------------------------------------------------------------+----------------------------------------+
+; controlePC_FPGA:command_unit|Rx_module:comb_24|Stop_bit[1]                    ; Stuck at GND due to stuck port data_in ;
+; controlePC_FPGA:command_unit|BaudRateGenerator:comb_23|BaudRateCounter[1..15] ; Stuck at GND due to stuck port data_in ;
+; controlePC_FPGA:command_unit|BaudRateGenerator:comb_23|BaudRateCounter[0]     ; Stuck at VCC due to stuck port data_in ;
+; controlePC_FPGA:command_unit|Rx_module:comb_24|Read_data[0..7]                ; Stuck at GND due to stuck port clock   ;
+; controlePC_FPGA:command_unit|Rx_module:comb_24|bits[0..4]                     ; Stuck at GND due to stuck port clock   ;
+; controlePC_FPGA:command_unit|Rx_module:comb_24|Start_bit[0]                   ; Stuck at VCC due to stuck port clock   ;
+; controlePC_FPGA:command_unit|Rx_module:comb_24|counter[0..3]                  ; Stuck at GND due to stuck port clock   ;
+; controlePC_FPGA:command_unit|Rx_module:comb_24|Stop_bit[0]                    ; Stuck at GND due to stuck port clock   ;
+; MDHT11:comb_3|low_signal~en                                                   ; Lost fanout                            ;
+; MDHT11:comb_3|high_signal~en                                                  ; Lost fanout                            ;
+; controlePC_FPGA:command_unit|Rx_module:comb_24|RxD[0..7]                      ; Stuck at GND due to stuck port data_in ;
+; MDHT11:comb_3|dht11_temp                                                      ; Stuck at GND due to stuck port data_in ;
+; MDHT11:comb_3|low_signal                                                      ; Stuck at GND due to stuck port data_in ;
+; MDHT11:comb_3|high_signal                                                     ; Stuck at GND due to stuck port data_in ;
+; controlePC_FPGA:command_unit|state.idle                                       ; Lost fanout                            ;
+; controlePC_FPGA:command_unit|state.header                                     ; Lost fanout                            ;
+; controlePC_FPGA:command_unit|state.adress                                     ; Lost fanout                            ;
+; controlePC_FPGA:command_unit|state.data                                       ; Lost fanout                            ;
+; controlePC_FPGA:command_unit|state.baseboard                                  ; Lost fanout                            ;
+; MDHT11:comb_3|state~2                                                         ; Lost fanout                            ;
+; MDHT11:comb_3|state~3                                                         ; Lost fanout                            ;
+; MDHT11:comb_3|state~4                                                         ; Lost fanout                            ;
+; controlePC_FPGA:command_unit|state~2                                          ; Lost fanout                            ;
+; controlePC_FPGA:command_unit|state~3                                          ; Lost fanout                            ;
+; controlePC_FPGA:command_unit|state~5                                          ; Lost fanout                            ;
+; controlePC_FPGA:command_unit|Rx_module:comb_24|state~3                        ; Lost fanout                            ;
+; MDHT11:comb_3|Nbits[0..6]                                                     ; Lost fanout                            ;
+; MDHT11:comb_3|count[0..13]                                                    ; Lost fanout                            ;
+; MDHT11:comb_3|clear                                                           ; Lost fanout                            ;
+; MDHT11:comb_3|state.idle                                                      ; Lost fanout                            ;
+; MDHT11:comb_3|state.start_bit                                                 ; Lost fanout                            ;
+; MDHT11:comb_3|state.responseWait                                              ; Lost fanout                            ;
+; MDHT11:comb_3|state.responseReceived                                          ; Lost fanout                            ;
+; MDHT11:comb_3|state.up_signal                                                 ; Lost fanout                            ;
+; MDHT11:comb_3|state.bitCheckout                                               ; Lost fanout                            ;
+; MDHT11:comb_3|state.dataStart                                                 ; Lost fanout                            ;
+; MDHT11:comb_3|state.dataReceived                                              ; Lost fanout                            ;
+; controlePC_FPGA:command_unit|Rx_module:comb_24|state.receving                 ; Lost fanout                            ;
+; Total Number of Removed Registers = 92                                        ;                                        ;
++-------------------------------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                              ;
++----------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; Register name                                                              ; Reason for Removal        ; Registers Removed due to This Register                                          ;
++----------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; controlePC_FPGA:command_unit|BaudRateGenerator:comb_23|BaudRateCounter[15] ; Stuck at GND              ; controlePC_FPGA:command_unit|Rx_module:comb_24|Read_data[2],                    ;
+;                                                                            ; due to stuck port data_in ; controlePC_FPGA:command_unit|Rx_module:comb_24|Read_data[1],                    ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|Read_data[0],                    ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|Read_data[3],                    ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|Read_data[4],                    ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|Read_data[5],                    ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|Read_data[6],                    ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|Read_data[7],                    ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|bits[0],                         ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|bits[1],                         ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|bits[2],                         ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|bits[3],                         ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|bits[4],                         ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|Start_bit[0],                    ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|counter[0],                      ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|counter[1],                      ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|counter[2],                      ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|counter[3],                      ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|Stop_bit[0],                     ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|RxD[7],                          ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|RxD[6],                          ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|RxD[5],                          ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|RxD[4],                          ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|RxD[3],                          ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|RxD[2],                          ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|RxD[1],                          ;
+;                                                                            ;                           ; controlePC_FPGA:command_unit|Rx_module:comb_24|RxD[0]                           ;
+; MDHT11:comb_3|state~2                                                      ; Lost Fanouts              ; MDHT11:comb_3|count[13], MDHT11:comb_3|count[12], MDHT11:comb_3|count[11],      ;
+;                                                                            ;                           ; MDHT11:comb_3|clear, MDHT11:comb_3|state.idle, MDHT11:comb_3|state.start_bit,   ;
+;                                                                            ;                           ; MDHT11:comb_3|state.responseWait, MDHT11:comb_3|state.responseReceived,         ;
+;                                                                            ;                           ; MDHT11:comb_3|state.up_signal, MDHT11:comb_3|state.dataStart,                   ;
+;                                                                            ;                           ; MDHT11:comb_3|state.dataReceived                                                ;
+; MDHT11:comb_3|state~3                                                      ; Lost Fanouts              ; MDHT11:comb_3|Nbits[6], MDHT11:comb_3|Nbits[5], MDHT11:comb_3|Nbits[4],         ;
+;                                                                            ;                           ; MDHT11:comb_3|Nbits[3], MDHT11:comb_3|Nbits[2], MDHT11:comb_3|state.bitCheckout ;
+; MDHT11:comb_3|dht11_temp                                                   ; Stuck at GND              ; MDHT11:comb_3|low_signal                                                        ;
+;                                                                            ; due to stuck port data_in ;                                                                                 ;
++----------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlePC_FPGA:command_unit ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; idle           ; 0000  ; Unsigned Binary                                  ;
+; header         ; 0001  ; Unsigned Binary                                  ;
+; adress         ; 0010  ; Unsigned Binary                                  ;
+; data           ; 0011  ; Unsigned Binary                                  ;
+; baseboard      ; 0100  ; Unsigned Binary                                  ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controlePC_FPGA:command_unit|Rx_module:comb_24 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; idle           ; 00    ; Unsigned Binary                                                    ;
+; receving       ; 01    ; Unsigned Binary                                                    ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MDHT11:comb_3 ;
++------------------+-------+---------------------------------+
+; Parameter Name   ; Value ; Type                            ;
++------------------+-------+---------------------------------+
+; idle             ; 000   ; Unsigned Binary                 ;
+; start_bit        ; 001   ; Unsigned Binary                 ;
+; responseWait     ; 010   ; Unsigned Binary                 ;
+; responseReceived ; 011   ; Unsigned Binary                 ;
+; up_signal        ; 100   ; Unsigned Binary                 ;
+; bitCheckout      ; 101   ; Unsigned Binary                 ;
+; dataStart        ; 110   ; Unsigned Binary                 ;
+; dataReceived     ; 111   ; Unsigned Binary                 ;
++------------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "demultiplexSensor:circuit_locator"                                                  ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; y    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MDHT11:comb_3"                                                                       ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; HumI  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; HumF  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; TempI ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controlePC_FPGA:command_unit|Rx_module:comb_24"                                                                                     ;
++--------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                     ;
++--------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; Stop_bit     ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "Stop_bit[1..1]" have no fanouts ;
+; Stop_bit     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                         ;
+; N_bits[2..0] ; Input  ; Info     ; Stuck at GND                                                                                                                ;
+; N_bits[3]    ; Input  ; Info     ; Stuck at VCC                                                                                                                ;
++--------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controlePC_FPGA:command_unit|BaudRateGenerator:comb_23" ;
++-----------------+-------+----------+-----------------------------------------------+
+; Port            ; Type  ; Severity ; Details                                       ;
++-----------------+-------+----------+-----------------------------------------------+
+; BaudRate[15..3] ; Input ; Info     ; Stuck at GND                                  ;
+; BaudRate[2]     ; Input ; Info     ; Stuck at VCC                                  ;
+; BaudRate[1]     ; Input ; Info     ; Stuck at GND                                  ;
+; BaudRate[0]     ; Input ; Info     ; Stuck at VCC                                  ;
++-----------------+-------+----------+-----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controlePC_FPGA:command_unit"                                                       ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Req  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++--------------------+--------------------------------+
+; Type               ; Count                          ;
++--------------------+--------------------------------+
+; boundary_port      ; 5                              ;
+; cycloneiii_io_obuf ; 1                              ;
+;                    ;                                ;
+; Max LUT depth      ; 0.00                           ;
+; Average LUT depth  ; 0.00                           ;
++--------------------+--------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+    Info: Processing started: Thu Sep 14 01:07:50 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Modulo_Sensores -c Modulo_Sensores
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file mdht11.v
+    Info (12023): Found entity 1: MDHT11 File: C:/Users/wesle/Documents/PBL1-SD/MDHT11.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file baudrategenerator.v
+    Info (12023): Found entity 1: BaudRateGenerator File: C:/Users/wesle/Documents/PBL1-SD/BaudRateGenerator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file rx_module.v
+    Info (12023): Found entity 1: Rx_module File: C:/Users/wesle/Documents/PBL1-SD/Rx_module.v Line: 1
+Warning (10229): Verilog HDL Expression warning at controlePC_FPGA.v(23): truncated literal to match 3 bits File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file controlepc_fpga.v
+    Info (12023): Found entity 1: controlePC_FPGA File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 1
+Warning (12019): Can't analyze file -- file multiplexSensor.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file bidirecional.v
+    Info (12023): Found entity 1: bidirecional File: C:/Users/wesle/Documents/PBL1-SD/bidirecional.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mcu_top.v
+    Info (12023): Found entity 1: mcu_top File: C:/Users/wesle/Documents/PBL1-SD/mcu_top.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file demultiplexsensor.v
+    Info (12023): Found entity 1: demultiplexSensor File: C:/Users/wesle/Documents/PBL1-SD/demultiplexSensor.v Line: 1
+Warning (10227): Verilog HDL Port Declaration warning at Rx_module.v(18): data type declaration for "Stop_bit" declares packed dimensions but the port declaration declaration does not File: C:/Users/wesle/Documents/PBL1-SD/Rx_module.v Line: 18
+Info (10499): HDL info at Rx_module.v(5): see declaration for object "Stop_bit" File: C:/Users/wesle/Documents/PBL1-SD/Rx_module.v Line: 5
+Critical Warning (10846): Verilog HDL Instantiation warning at controlePC_FPGA.v(27): instance has no name File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 27
+Critical Warning (10846): Verilog HDL Instantiation warning at controlePC_FPGA.v(28): instance has no name File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 28
+Critical Warning (10846): Verilog HDL Instantiation warning at mcu_top.v(11): instance has no name File: C:/Users/wesle/Documents/PBL1-SD/mcu_top.v Line: 11
+Info (12127): Elaborating entity "mcu_top" for the top level hierarchy
+Info (12128): Elaborating entity "controlePC_FPGA" for hierarchy "controlePC_FPGA:command_unit" File: C:/Users/wesle/Documents/PBL1-SD/mcu_top.v Line: 10
+Warning (10240): Verilog HDL Always Construct warning at controlePC_FPGA.v(36): inferring latch(es) for variable "tempE", which holds its previous value in one or more paths through the always construct File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Warning (10240): Verilog HDL Always Construct warning at controlePC_FPGA.v(36): inferring latch(es) for variable "tempR", which holds its previous value in one or more paths through the always construct File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempR[0]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempR[1]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempR[2]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempR[3]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempR[4]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempR[5]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempR[6]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempR[7]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempE[0]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempE[1]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempE[2]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempE[3]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempE[4]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempE[5]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempE[6]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (10041): Inferred latch for "tempE[7]" at controlePC_FPGA.v(36) File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 36
+Info (12128): Elaborating entity "BaudRateGenerator" for hierarchy "controlePC_FPGA:command_unit|BaudRateGenerator:comb_23" File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 27
+Info (12128): Elaborating entity "Rx_module" for hierarchy "controlePC_FPGA:command_unit|Rx_module:comb_24" File: C:/Users/wesle/Documents/PBL1-SD/controlePC_FPGA.v Line: 28
+Warning (10230): Verilog HDL assignment warning at Rx_module.v(58): truncated value with size 32 to match size of target (4) File: C:/Users/wesle/Documents/PBL1-SD/Rx_module.v Line: 58
+Warning (10230): Verilog HDL assignment warning at Rx_module.v(66): truncated value with size 32 to match size of target (5) File: C:/Users/wesle/Documents/PBL1-SD/Rx_module.v Line: 66
+Info (12128): Elaborating entity "MDHT11" for hierarchy "MDHT11:comb_3" File: C:/Users/wesle/Documents/PBL1-SD/mcu_top.v Line: 11
+Warning (10230): Verilog HDL assignment warning at MDHT11.v(48): truncated value with size 32 to match size of target (14) File: C:/Users/wesle/Documents/PBL1-SD/MDHT11.v Line: 48
+Warning (10230): Verilog HDL assignment warning at MDHT11.v(122): truncated value with size 32 to match size of target (7) File: C:/Users/wesle/Documents/PBL1-SD/MDHT11.v Line: 122
+Info (12128): Elaborating entity "demultiplexSensor" for hierarchy "demultiplexSensor:circuit_locator" File: C:/Users/wesle/Documents/PBL1-SD/mcu_top.v Line: 12
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "MDHT11:comb_3|low_signal~0" feeding internal logic into a wire File: C:/Users/wesle/Documents/PBL1-SD/MDHT11.v Line: 9
+    Warning (13049): Converted tri-state buffer "MDHT11:comb_3|high_signal~0" feeding internal logic into a wire File: C:/Users/wesle/Documents/PBL1-SD/MDHT11.v Line: 10
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13032): The following tri-state nodes are fed by constants
+    Warning (13033): The pin "sensor" is fed by GND File: C:/Users/wesle/Documents/PBL1-SD/mcu_top.v Line: 2
+Info (17049): 45 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/wesle/Documents/PBL1-SD/output_files/Modulo_Sensores.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "rx" File: C:/Users/wesle/Documents/PBL1-SD/mcu_top.v Line: 3
+    Warning (15610): No output dependent on input pin "tx" File: C:/Users/wesle/Documents/PBL1-SD/mcu_top.v Line: 3
+    Warning (15610): No output dependent on input pin "clk" File: C:/Users/wesle/Documents/PBL1-SD/mcu_top.v Line: 3
+    Warning (15610): No output dependent on input pin "rst" File: C:/Users/wesle/Documents/PBL1-SD/mcu_top.v Line: 3
+Info (21057): Implemented 5 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 0 output pins
+    Info (21060): Implemented 1 bidirectional pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 4741 megabytes
+    Info: Processing ended: Thu Sep 14 01:08:05 2023
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:30
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/wesle/Documents/PBL1-SD/output_files/Modulo_Sensores.map.smsg.
+
+

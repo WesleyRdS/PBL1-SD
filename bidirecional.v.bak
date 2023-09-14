@@ -1,0 +1,11 @@
+module bidirecional(En, Bdir);
+
+	input EN;
+	inout Bdir;
+	reg dataRx, dataTx;
+	
+	
+	assing Bdir = En? DataTx: 8'bZ;
+	assing dataRx = Bdir;
+	
+endmodule 

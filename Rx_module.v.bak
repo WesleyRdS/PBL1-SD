@@ -1,0 +1,54 @@
+module Rx_module(clk, Tick rst,Rx, RxD, Stop_bit, N_bits);
+
+	input clk, rst, Tick, Rx; //respectivamente clock, reset e frequencia 16 vezes o valor da baud rate
+	input [3:0] N_bits; // Conta de 8 em 8 para identificar o inicio do start bit;
+	output Stop_bit; // sinal de saida para indicar que a leitura foi concluida;
+	output reg [7:0] RxD; // saida do Rx data
+	
+	//parametros
+	parameter IDLE = 1'b0, RECEVING = 1'b1;
+	
+	//estados
+	reg [1:0] state, nextstate;
+	
+	//registradores
+	reg [4:0] bits = 5'b00000;
+	reg [1:0] Start_bit = 1'b1;
+	reg [1:0] Stop_bit = 1'b0;
+	reg [1:0] read_enable = 1'b0;
+	reg [3:0] counter = 4'b0000;		
+	reg [7:0] Read_data= 8'b00000000;
+	
+	
+	always @(posedge clk or posedge rst) begin
+		if(rst) begin
+			state <= IDLE;
+		end
+		else begin
+			state <= nextstate;
+		end
+	end
+	
+	always @(Rx or state or Stop_bit) begin
+		case(state)
+			IDLE: begin
+				if(Rx) begin
+					nextstate <= IDLE;
+				end
+				else begin
+					nextstate <= RECEVING;
+				end
+			end
+			RECEVING: begin
+				if(Stop_bit) begin
+					nextstate <= RECEVING;
+				end
+				else begin
+					nextstate <= IDLE;
+				end
+			end
+		endcase
+	end
+	
+endmodule 
+	

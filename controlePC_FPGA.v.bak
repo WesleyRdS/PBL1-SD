@@ -1,0 +1,22 @@
+module controlePC_FPGA(clk, rst, Rx, Tx);
+	input clk, rst, Rx;
+	output Tx;
+
+	
+	//fios
+	wire [3:0] N_bits;
+	wire [15:0] baud_rate;
+	wire tick, rx_stop;
+	//registradores
+	reg [7:0] RxData;
+	
+	//atribuição de valores
+	assign baud_rate = 3'd325;
+	assign N_bits = 4'b1000;
+	
+	//chamadas
+	BaudRateGenerator(.clk(clk), .reset(rst), .Tick(tick), .BaudRate(baud_rate));
+	Rx_module(.clk(clk), .Tick(tick), .rst(rst), .Rx(Rx), .RxD(RxData), .Stop_bit(rx_stop), .N_bits(N_bits));
+	
+	
+endmodule

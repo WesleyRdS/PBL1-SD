@@ -1,0 +1,9 @@
+module multiplexSensor(clk, End, y);
+	input clk;
+	input reg [8:0] End;
+	output y;
+	
+	always @(posedge clk) begin
+			y = (End - 8'b0000001) >> 32'b10000000000000000000000000000000;
+	end
+endmodule

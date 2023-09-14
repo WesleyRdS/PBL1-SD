@@ -1,0 +1,57 @@
+module MDHT11(Data, clk, rst,HumI, HumF, TempI, TempF, Par, enable);
+	inout Data;
+	input clk, rst, enable;
+	output [7:0] HumI, HumF, TempI, TempF, Par;
+	
+	reg [39:0] DataRead;
+	reg [2:0] state;
+	reg dir;
+	
+	integer count18ms, count80usw, count80us, count20_to_40us, count50us, count0, count1, Nbits;
+	
+	
+
+	parameter reg [2:0] idle = 3'b000, check = 3'b001, start_bit = 3'b010, responseWait = 3'b011, responseReceived = 3'b100, bitCheckout = 3'b101, dataStart = 3'b110, dataReceived = 3'b111;
+	
+	reg send1;
+	wire read;
+
+	
+	bidirecional tristate(.En(dir), .Bdir(Data), .dataRx(read), .dataTx(send1));
+	
+	always @(posedge clk) begin
+		case(state)
+			idle: begin // estado inativo
+				if(enable) begin // se estiver pronto para leitura
+					dir <= 0; // mude a porta o DHT11 para modo de recebimento
+					state <= check; //va para o estado e checagem
+				end
+				else begin
+					state <= idle;
+				end
+			end
+			check: begin
+				if(read) begin
+					dir <= 1;
+					send1 <= 0;
+					state <= start_bit;
+				end
+				else begin
+					state <= idle;
+				end
+			end
+			start_bit: begin
+				if(count18ms < 9000) begin
+					state <= responseWait;
+				end
+				else begin
+					count18ms = count18ms + 1;
+				end
+			end
+			responseWait: begin
+		
+			end
+		endcase  
+	end
+	
+endmodule
