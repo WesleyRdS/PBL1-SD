@@ -1,3 +1,5 @@
+# Modulo de controle e recepção de dados seriais com FPGA
+
 Este código em Verilog HDL descreve um módulo de controle para uma FPGA (Field-Programmable Gate Array). Vou explicar cada parte do código em detalhes:
 
 1. **Entradas e Saídas**:
